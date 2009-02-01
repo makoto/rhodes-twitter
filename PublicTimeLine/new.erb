@@ -1,0 +1,36 @@
+<form title="New PublicTimeLine" 
+	  class="panel"
+	  id="PublicTimeLine_new_form" 
+	  method="POST" 
+	  action="<%=url_for('create')%>">
+	<fieldset>
+		<input type="hidden" name="id" value="<%=@PublicTimeLine.object%>"/>
+		
+		  <div class="row">
+			  <label>text: </label>
+			  <input type="text" name="PublicTimeLine[text]"/>
+		  </div>
+		
+		  <div class="row">
+			  <label>user_screen_name: </label>
+			  <input type="text" name="PublicTimeLine[user_screen_name]"/>
+		  </div>
+		
+		  <div class="row">
+			  <label>user_name: </label>
+			  <input type="text" name="PublicTimeLine[user_name]"/>
+		  </div>
+		
+		  <div class="row">
+			  <label>user_profile_image_url: </label>
+			  <input type="text" name="PublicTimeLine[user_profile_image_url]"/>
+		  </div>
+		
+		  <div class="row">
+			  <label>source: </label>
+			  <input type="text" name="PublicTimeLine[source]"/>
+		  </div>
+		
+	</fieldset>
+	<input type="submit" value="Create"/>
+</form>

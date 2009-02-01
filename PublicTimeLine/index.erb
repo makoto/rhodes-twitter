@@ -1,0 +1,8 @@
+<ul id="PublicTimeLines" title="PublicTimeLines">
+<%@PublicTimeLines.each do |x|%>
+
+<li><%=link_to "#{x.text}", "edit", x.object%></li>
+
+<%end%>
+<li><font color="blue"><%=link_to "New PublicTimeLine", "new"%></font></li>
+</ul>
