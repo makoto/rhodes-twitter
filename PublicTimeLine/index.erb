@@ -12,7 +12,7 @@
           <b><%= x.user_screen_name %></b> <%= x.text %>
         </p>
         <p>
-          <%= x.user_name %> <%= x.created_at %> via <%= x.source%>
+          <%= x.user_name %> <%= timeago(parse_time(x.created_at)) %> via <%= x.source%>
         </p>
       </td>
    </tr> 
