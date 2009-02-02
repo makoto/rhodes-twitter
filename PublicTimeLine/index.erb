@@ -1,8 +1,23 @@
 <ul id="PublicTimeLines" title="PublicTimeLines">
 <%@PublicTimeLines.each do |x|%>
 
-<li><%=link_to "#{x.text}", "edit", x.object%></li>
-
+<li>
+  <table>
+   <tr>
+      <td>
+        <img src=<%= x.user_profile_image_url %> alt=<%= x.user_screen_name %> />
+      </td>
+      <td>
+        <p>
+          <b><%= x.user_screen_name %></b> <%= x.text %>
+        </p>
+        <p>
+          <%= x.user_name %> <%= x.created_at %> via <%= x.source%>
+        </p>
+      </td>
+   </tr> 
+  </table>
+</li>
 <%end%>
 <li><font color="blue"><%=link_to "New PublicTimeLine", "new"%></font></li>
 </ul>
