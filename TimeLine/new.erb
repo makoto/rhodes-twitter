@@ -1,0 +1,36 @@
+<form title="New TimeLine" 
+	  class="panel"
+	  id="TimeLine_new_form" 
+	  method="POST" 
+	  action="<%=url_for('create')%>">
+	<fieldset>
+		<input type="hidden" name="id" value="<%=@TimeLine.object%>"/>
+		
+		  <div class="row">
+			  <label>text: </label>
+			  <input type="text" name="TimeLine[text]"/>
+		  </div>
+		
+		  <div class="row">
+			  <label>user_screen_name: </label>
+			  <input type="text" name="TimeLine[user_screen_name]"/>
+		  </div>
+		
+		  <div class="row">
+			  <label>user_name: </label>
+			  <input type="text" name="TimeLine[user_name]"/>
+		  </div>
+		
+		  <div class="row">
+			  <label>user_profile_image_url: </label>
+			  <input type="text" name="TimeLine[user_profile_image_url]"/>
+		  </div>
+		
+		  <div class="row">
+			  <label>source: </label>
+			  <input type="text" name="TimeLine[source]"/>
+		  </div>
+		
+	</fieldset>
+	<input type="submit" value="Create"/>
+</form>

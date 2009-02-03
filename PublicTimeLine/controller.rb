@@ -47,6 +47,7 @@ class PublicTimeLineController < Rho::RhoController
   end
   
   def parse_time(time_in_string)
+    time_in_string = time_in_string.first if time_in_string.kind_of?(Array)
     day_of_week, month, day, time, timee_zone, year = time_in_string.split
     Time.mktime(year, month, day, time)
   end
@@ -72,8 +73,10 @@ class PublicTimeLineController < Rho::RhoController
     case
       when minutes < 1
         "less than a minute"
+      when minutes == 1
+        "1 minute"
       when minutes < 50
-        pluralize(minutes, "minute")
+        "#{minutes} minutes")
       when minutes < 90
         "about one hour"
       when minutes < 1080
