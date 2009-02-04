@@ -1,10 +1,12 @@
 require 'rho/rhocontroller'
+require File.join(__rhoGetCurrentDir(), 'apps','Twitter','lib/time_helper')
 
 class TimeLineController < Rho::RhoController
   
   #GET /TimeLine
   def index
     @TimeLines = TimeLine.find(:all)
+    # @TimeLines = @TimeLines.map{|tl| tl.created_at = timeago(parse_time(tl.created_at)); tl}
     render :index
   end
 

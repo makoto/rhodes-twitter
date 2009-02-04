@@ -1,0 +1,17 @@
+.photo{
+  float: left;
+}
+.status{
+  margin-top: 5px;
+  margin-left: 10px;
+  width: 290px;
+  
+/*  float : left; */
+}
+.text{}
+.user {
+/*  float: left;*/
+  color:#999999;
+  font-size:13px;
+  font-weight:normal;
+}
