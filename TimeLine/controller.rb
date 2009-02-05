@@ -5,8 +5,7 @@ class TimeLineController < Rho::RhoController
   
   #GET /TimeLine
   def index
-    @TimeLines = TimeLine.find(:all)
-    # @TimeLines = @TimeLines.map{|tl| tl.created_at = timeago(parse_time(tl.created_at)); tl}
+    @TimeLines = TimeLine.find(:all).reverse
     render :index
   end
 
