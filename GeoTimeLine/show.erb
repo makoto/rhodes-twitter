@@ -1,0 +1,14 @@
+<ul id="GeoTimeLine" title="Show GeoTimeLine">
+  
+    <li><%=@GeoTimeLine.text%></li>
+  
+    <li><%=@GeoTimeLine.user_screen_name%></li>
+  
+    <li><%=@GeoTimeLine.user_name%></li>
+  
+    <li><%=@GeoTimeLine.user_profile_image_url%></li>
+  
+    <li><%=@GeoTimeLine.source%></li>
+  
+  <li><%=link_to "Edit #{@GeoTimeLine.text}", :action => :edit, :id => @GeoTimeLine.object%></li>
+</ul>

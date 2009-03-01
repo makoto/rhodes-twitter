@@ -1,0 +1,36 @@
+<form title="New GeoTimeLine" 
+	  class="panel"
+	  id="GeoTimeLine_new_form" 
+	  method="POST" 
+	  action="<%=url_for(:action => :create)%>">
+	<fieldset>
+		<input type="hidden" name="id" value="<%=@GeoTimeLine.object%>"/>
+		
+		  <div class="row">
+			  <label>Text: </label>
+			  <input type="text" name="GeoTimeLine[text]"/>
+		  </div>
+		
+		  <div class="row">
+			  <label>User screen name: </label>
+			  <input type="text" name="GeoTimeLine[user_screen_name]"/>
+		  </div>
+		
+		  <div class="row">
+			  <label>User name: </label>
+			  <input type="text" name="GeoTimeLine[user_name]"/>
+		  </div>
+		
+		  <div class="row">
+			  <label>User profile image url: </label>
+			  <input type="text" name="GeoTimeLine[user_profile_image_url]"/>
+		  </div>
+		
+		  <div class="row">
+			  <label>Source: </label>
+			  <input type="text" name="GeoTimeLine[source]"/>
+		  </div>
+		
+	</fieldset>
+	<input type="submit" value="Create"/>
+</form>
