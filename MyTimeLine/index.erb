@@ -1,8 +1,19 @@
 <ul id="MyTimeLines" title="MyTimeLines">
-<%@MyTimeLines.each do |x|%>
+<%@TimeLines.each do |x|%>
 
-<li><%=link_to "#{x.text}", :action => :show, :id => x.object%></li>
-
+<li class ="row">
+  <div class ="photo">
+    <img src=<%= x.user_profile_image_url %> alt=<%= x.user_screen_name %> />
+  </div>
+  <div class ="status">
+    <div class ="text">
+     <%= x.text %>
+    </div>
+    <div class ="user">
+     <%= x.user_name %> <%= x.created_at %> via <%= x.source %>
+    </div>
+  </div>
+</li>
 <%end%>
 <li><font color="blue"><%=link_to "New MyTimeLine", :action => :new%></font></li>
 </ul>
