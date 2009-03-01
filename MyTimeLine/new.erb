@@ -5,32 +5,12 @@
 	  action="<%=url_for(:action => :create)%>">
 	<fieldset>
 		<input type="hidden" name="id" value="<%=@MyTimeLine.object%>"/>
-		
+
 		  <div class="row">
 			  <label>Text: </label>
 			  <input type="text" name="MyTimeLine[text]"/>
 		  </div>
-		
-		  <div class="row">
-			  <label>User screen name: </label>
-			  <input type="text" name="MyTimeLine[user_screen_name]"/>
-		  </div>
-		
-		  <div class="row">
-			  <label>User name: </label>
-			  <input type="text" name="MyTimeLine[user_name]"/>
-		  </div>
-		
-		  <div class="row">
-			  <label>User profile image url: </label>
-			  <input type="text" name="MyTimeLine[user_profile_image_url]"/>
-		  </div>
-		
-		  <div class="row">
-			  <label>Source: </label>
-			  <input type="text" name="MyTimeLine[source]"/>
-		  </div>
-		
+	
 	</fieldset>
 	<input type="submit" value="Create"/>
 </form>
