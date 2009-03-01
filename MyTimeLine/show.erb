@@ -1,0 +1,14 @@
+<ul id="MyTimeLine" title="Show MyTimeLine">
+  
+    <li><%=@MyTimeLine.text%></li>
+  
+    <li><%=@MyTimeLine.user_screen_name%></li>
+  
+    <li><%=@MyTimeLine.user_name%></li>
+  
+    <li><%=@MyTimeLine.user_profile_image_url%></li>
+  
+    <li><%=@MyTimeLine.source%></li>
+  
+  <li><%=link_to "Edit #{@MyTimeLine.text}", :action => :edit, :id => @MyTimeLine.object%></li>
+</ul>

@@ -1,40 +1,40 @@
-<form title="Edit TimeLine" 
+<form title="Edit MyTimeLine" 
 	  class="panel" 
-	  id="TimeLine_edit_form" 
+	  id="MyTimeLine_edit_form" 
 	  method="POST" 
-	  action="<%=url_for('update')%>">
+	  action="<%=url_for(:action => :update)%>">
 	<fieldset>
-		<input type="hidden" name="id" value="<%=@TimeLine.object%>"/>
+		<input type="hidden" name="id" value="<%=@MyTimeLine.object%>"/>
 		
 		  <div class="row">
-			  <label>text: </label>
-			  <input type="text" name="TimeLine[text]" value="<%=@TimeLine.text%>"/>
+			  <label>Text: </label>
+			  <input type="text" name="MyTimeLine[text]" value="<%=@MyTimeLine.text%>"/>
 		  </div>
 		
 		  <div class="row">
-			  <label>user_screen_name: </label>
-			  <input type="text" name="TimeLine[user_screen_name]" value="<%=@TimeLine.user_screen_name%>"/>
+			  <label>User screen name: </label>
+			  <input type="text" name="MyTimeLine[user_screen_name]" value="<%=@MyTimeLine.user_screen_name%>"/>
 		  </div>
 		
 		  <div class="row">
-			  <label>user_name: </label>
-			  <input type="text" name="TimeLine[user_name]" value="<%=@TimeLine.user_name%>"/>
+			  <label>User name: </label>
+			  <input type="text" name="MyTimeLine[user_name]" value="<%=@MyTimeLine.user_name%>"/>
 		  </div>
 		
 		  <div class="row">
-			  <label>user_profile_image_url: </label>
-			  <input type="text" name="TimeLine[user_profile_image_url]" value="<%=@TimeLine.user_profile_image_url%>"/>
+			  <label>User profile image url: </label>
+			  <input type="text" name="MyTimeLine[user_profile_image_url]" value="<%=@MyTimeLine.user_profile_image_url%>"/>
 		  </div>
 		
 		  <div class="row">
-			  <label>source: </label>
-			  <input type="text" name="TimeLine[source]" value="<%=@TimeLine.source%>"/>
+			  <label>Source: </label>
+			  <input type="text" name="MyTimeLine[source]" value="<%=@MyTimeLine.source%>"/>
 		  </div>
 		
 	</fieldset>
 	<input type="submit" value="Update"/>
 	<p align="center">
-		<a href="<%=url_for('delete', @TimeLine.object)%>">
+		<a href="<%=url_for(:action => :delete, :id => @MyTimeLine.object)%>">
 			<font color="#990000">Delete</font>
 		</a>
 	</p>

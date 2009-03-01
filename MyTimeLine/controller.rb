@@ -1,49 +1,49 @@
 require 'rho/rhocontroller'
-require File.join(__rhoGetCurrentDir(), 'apps','Twitter','lib/time_helper')
 
-class TimeLineController < Rho::RhoController
-  
-  #GET /TimeLine
+class MyTimeLineController < Rho::RhoController
+
+  #GET /MyTimeLine
   def index
-    @TimeLines = TimeLine.find(:all).reverse
-    render :index
+    @MyTimeLines = MyTimeLine.find(:all)
+    render
   end
 
-  # GET /TimeLine/1
+  # GET /MyTimeLine/1
   def show
-    @TimeLines = TimeLine.find(@params['object'])
+    @MyTimeLine = MyTimeLine.find(@params['id'])
+    render :action => :show
   end
 
-  # GET /TimeLine/new
+  # GET /MyTimeLine/new
   def new
-    @TimeLine = TimeLine.new
-    render :new
+    @MyTimeLine = MyTimeLine.new
+    render :action => :new
   end
 
-  # GET /TimeLine/1/edit
+  # GET /MyTimeLine/1/edit
   def edit
-    @TimeLine = TimeLine.find(@params['id'])
-    render :edit
+    @MyTimeLine = MyTimeLine.find(@params['id'])
+    render :action => :edit
   end
 
-  # POST /TimeLine/create
+  # POST /MyTimeLine/create
   def create
-    @TimeLine = TimeLine.new(@params['TimeLine'])
-    @TimeLine.save
-    redirect :index
+    @MyTimeLine = MyTimeLine.new(@params['MyTimeLine'])
+    @MyTimeLine.save
+    redirect :action => :index
   end
 
-  # POST /TimeLine/1/update
+  # POST /MyTimeLine/1/update
   def update
-    @TimeLine = TimeLine.find(@params['id'])
-    @TimeLine.update_attributes(@params['TimeLine'])
-    redirect :index
+    @MyTimeLine = MyTimeLine.find(@params['id'])
+    @MyTimeLine.update_attributes(@params['MyTimeLine'])
+    redirect :action => :index
   end
 
-  # POST /TimeLine/1/delete
+  # POST /MyTimeLine/1/delete
   def delete
-    @TimeLine = TimeLine.find(@params['id'])
-    @TimeLine.destroy
-    redirect :index
+    @MyTimeLine = MyTimeLine.find(@params['id'])
+    @MyTimeLine.destroy
+    redirect :action => :index
   end
 end
