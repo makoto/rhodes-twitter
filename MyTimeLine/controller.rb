@@ -4,7 +4,25 @@ class MyTimeLineController < Rho::RhoController
 
   #GET /MyTimeLine
   def index
+    require 'rho'
+    p "Rho::RhoConfig::sources"
+    p Rho::RhoConfig::sources.inspect
+    
+    p "Rho::RhoConfig::sources[self.name.to_s]"
+    p Rho::RhoConfig::sources["MyTimeLine"]
+    
     @MyTimeLines = MyTimeLine.find(:all)
+    p "@MyTimeLines.class #{@MyTimeLines.class}"
+    p @MyTimeLines.inspect
+    # p "@MyTimeLines.first.keys #{@MyTimeLines.first.keys.join(',')}"
+    # first = @MyTimeLines.first
+    # first.keys.each do |k|
+    #   p "first.send(k.to_sym)"
+    #   p first.send(k.to_sym)
+    # end
+    # @MyTimeLines.each do |t|
+    #   p t.id
+    # end
     render
   end
 

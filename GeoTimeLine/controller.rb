@@ -10,8 +10,12 @@ class GeoTimeLineController < Rho::RhoController
 
     question = "#{latitude},#{longitude}"
 
+    # Not sure how this works yet.
+    # range = "25km"
+    # url = "/search.json?geocode=#{latitude}%2C#{longitude}%2C#{range}"
+    # GeoTimeLine.set_notification("url")
+
     GeoTimeLine.ask(question)
-    
 
     require 'rhom'
     p "Rhom::RhomDbAdapter::select_from_table 1" 
@@ -23,19 +27,7 @@ class GeoTimeLineController < Rho::RhoController
     p "Rhom::RhomDbAdapter::select_from_table 2" 
     p Rhom::RhomDbAdapter::select_from_table('object_values','*', :source_id => 13)
     p "EOF |||||||||||||||"
-    
-    @page = GeoTimeLine.find(object_id).first
-    
-    if @page
-      p "@page.class #{@page.class} ::"
-      p "@page.methods #{@page.methods.join(',')} ::"
-      p "@page.inspect #{@page.inspect} ::"
-      
-      p "@page.data"
-      @data = @page.data
-      p @data
-      @data
-    end
+    @GeoTimeLines = GeoTimeLine.find(:all)
     
     render :action => :index
   end
