@@ -1,5 +1,4 @@
 require 'rho/rhoapplication'
 
-class TwitterApplication < Rho::RhoApplication
+class AppApplication < Rho::RhoApplication
 end
-
