@@ -1,26 +1,13 @@
-
-
-</script>
-
-<div class="toolbar">
-	<h1 id="pageTitle">
-		<script language="JavaScript">
-			document.write(document.title)
-		</script>
-	</h1>
-	<a id="backButton" class="button" href="./"></a>
-</div>
 <ul id="home" selected="true" title="Twitter">
-	<% if SyncEngine::logged_in > 0 %>
-	  <li>You are logged in</li>  
-  <% else %>
-	  <li>You are NOT logged in.</li>  
-	<% end %>
-	<li><a href="Settings/logout" target="_self">Logout</a></li>
-	<li><a href="Settings/login" target="_self">Login</a></li>
-	<li><a  href="PublicTimeLine"> Public Tweet</a></li>
-	<li><a  href="PublicTimeLine2"> Public Tweet2</a></li>
-	<li><a  href="MyTimeLine">Friend's Tweet</a></li>
-	<li><a  href="MyTimeLine/new">New Tweet</a></li>
 	<li><a  href="GeoTimeLine"> Neighbor Tweet</a></li>
+	<li><a  href="MyTimeLine"> Freinds Tweet</a></li>
+	<li><a  href="PublicTimeLine"> Public Tweet</a></li>
+	<% if SyncEngine::logged_in > 0 %>		
+	<li>You are logged in </li>
+	<% else %>
+	<li>You are logged out </li>
+	<% end %>
+	<li><a  href="Settings/login"> Login </a></li>
+  <li><a  href="Settings/logout"> Logout </a></li>
 </ul>
+
