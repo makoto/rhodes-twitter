@@ -15,6 +15,8 @@ class GeoTimeLineController < Rho::RhoController
     # url = "/search.json?geocode=#{latitude}%2C#{longitude}%2C#{range}"
     # GeoTimeLine.set_notification("url")
 
+    SyncEngine::set_notification(13,"/GeoTimeLine", "question=" + question)
+
     GeoTimeLine.ask(question)
 
     require 'rhom'
