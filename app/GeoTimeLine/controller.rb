@@ -4,8 +4,22 @@ class GeoTimeLineController < Rho::RhoController
 
   #GET /GeoTimeLine
   def index
-    latitude =  GeoLocation.latitude.to_s
-    longitude = GeoLocation.longitude.to_s
+    
+    timeout = 0
+    latitude = 0
+    longitude = 0
+    while GeoLocation.latitude.to_s == "0.0" && timeout < 10
+      latitude =  GeoLocation.latitude.to_s
+      longitude = GeoLocation.longitude.to_s
+      sleep 1
+      timeout = timeout + 1
+    end
+    p "GeoLocation.latitude  "
+    p GeoLocation.latitude
+    p "timeout : #{timeout}"
+    p "GeoLocation.latitude.to_s  "
+    p GeoLocation.latitude.to_s
+        
     range = "25km"
 
     question = "#{latitude},#{longitude}"
