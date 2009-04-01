@@ -1,19 +1,30 @@
-<ul id="GeoTimeLines" title="GeoTimeLines">
-<%@GeoTimeLines.each do |x|%>
+<div align="center">
 
-<li class ="row">
-  <div class ="photo">
-    <img src=<%= x.user_profile_image_url %> alt=<%= x.user_screen_name %> />
-  </div>
-  <div class ="status">
-    <div class ="text">
-     <%= x.text %>
-    </div>
-    <div class ="user">
-     <%= x.user_name %> <%= x.created_at %> via <%= x.source %>
-    </div>
-  </div>
-</li>
-<%end%>
-<li><font color="blue"><%=link_to "New GeoTimeLine", :action => :new%></font></li>
-</ul>
+	<% lat =  GeoLocation.latitude.to_s %>
+	<% lon = GeoLocation.longitude.to_s %>
+	
+  <form title="Index GeoTimeLine" 
+  	  class="panel"
+  	  id="GeoTimeLine_index_form" 
+  	  method="POST" 
+  	  action="<%=url_for(:action => :show)%>">
+  	<fieldset>
+  		  <div class="row">
+  			  <label>Tweets within: </label><br>
+  			  <div align="center"><br>
+          <input type="radio" name="radius" value="1" checked> 1
+          <input type="radio" name="radius" value="5" > 5
+          <input type="radio" name="radius" value="10" > 10
+          </div>
+  		  </div>
+		
+  		  <div class="row">
+  			  <div align="center"><br>
+          <input type="radio" name="unit" value="km" checked> Km
+          <input type="radio" name="unit" value="mi" > Mile<br>
+          </div>
+  		  </div>
+  	</fieldset>
+  	<input type="submit" value="Display"/>
+  </form>
+</div>

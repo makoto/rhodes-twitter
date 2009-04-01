@@ -1,14 +1,19 @@
-<ul id="GeoTimeLine" title="Show GeoTimeLine">
-  
-    <li><%=@GeoTimeLine.text%></li>
-  
-    <li><%=@GeoTimeLine.user_screen_name%></li>
-  
-    <li><%=@GeoTimeLine.user_name%></li>
-  
-    <li><%=@GeoTimeLine.user_profile_image_url%></li>
-  
-    <li><%=@GeoTimeLine.source%></li>
-  
-  <li><%=link_to "Edit #{@GeoTimeLine.text}", :action => :edit, :id => @GeoTimeLine.object%></li>
+<ul id="GeoTimeLines" title="GeoTimeLines">
+<%@GeoTimeLines.each do |x|%>
+
+<li class ="row">
+  <div class ="photo">
+    <img src=<%= x.user_profile_image_url %> alt=<%= x.user_screen_name %> />
+  </div>
+  <div class ="status">
+    <div class ="text">
+     <%= x.text %>
+    </div>
+    <div class ="user">
+     <%= x.user_name %> <%= x.created_at %> via <%= x.source %>
+    </div>
+  </div>
+</li>
+<%end%>
+<li><font color="blue"><%=link_to "New GeoTimeLine", :action => :new%></font></li>
 </ul>

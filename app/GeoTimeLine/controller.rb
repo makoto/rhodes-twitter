@@ -4,25 +4,28 @@ class GeoTimeLineController < Rho::RhoController
 
   #GET /GeoTimeLine
   def index
-    
+    render :action => :index
+  end
+  
+  def show
+    p "PARAMS"
+    p @params
     timeout = 0
-    latitude = 0
-    longitude = 0
-    while GeoLocation.latitude.to_s == "0.0" && timeout < 10
-      latitude =  GeoLocation.latitude.to_s
-      longitude = GeoLocation.longitude.to_s
-      sleep 1
-      timeout = timeout + 1
-    end
+    radius = @params['radius']
+    unit = @params['unit']
+
     p "GeoLocation.latitude  "
     p GeoLocation.latitude
     p "timeout : #{timeout}"
     p "GeoLocation.latitude.to_s  "
     p GeoLocation.latitude.to_s
+
+    latitude =  GeoLocation.latitude.to_s
+    longitude = GeoLocation.longitude.to_s
         
     range = "25km"
-
-    question = "#{latitude},#{longitude}"
+    p "PARAMS"
+    question = "#{latitude},#{longitude},#{radius}#{unit}"
 
     # Not sure how this works yet.
     # range = "25km"
@@ -45,14 +48,14 @@ class GeoTimeLineController < Rho::RhoController
     p "EOF |||||||||||||||"
     @GeoTimeLines = GeoTimeLine.find(:all)
     
-    render :action => :index
+    render :action => :show
   end
 
   # GET /GeoTimeLine/1
-  def show
-    @GeoTimeLine = GeoTimeLine.find(@params['id'])
-    render :action => :show
-  end
+  # def show
+  #   @GeoTimeLine = GeoTimeLine.find(@params['id'])
+  #   render :action => :show
+  # end
 
   # GET /GeoTimeLine/new
   def new
