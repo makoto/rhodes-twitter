@@ -1,6 +1,8 @@
+1
 <ul id="GeoTimeLines" title="GeoTimeLines">
+2
 <%@GeoTimeLines.each do |x|%>
-
+3
 <li class ="row">
   <div class ="photo">
     <img src=<%= x.user_profile_image_url %> alt=<%= x.user_screen_name %> />
@@ -15,5 +17,6 @@
   </div>
 </li>
 <%end%>
-<li><font color="blue"><%=link_to "New GeoTimeLine", :action => :new%></font></li>
+4
 </ul>
+5
