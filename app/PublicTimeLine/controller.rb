@@ -5,7 +5,7 @@ class PublicTimeLineController < Rho::RhoController
   
   #GET /PublicTimeLine
   def index
-    @PublicTimeLines = PublicTimeLine.find(:all)
+    @PublicTimeLines = PublicTimeLine.find(:all).reverse
     render :action => :index
   end
 

@@ -1,5 +1,15 @@
 
 class Rho::RhoController
+  
+  def escape(string)
+    if string
+      string.gsub(/\\\//,'/') 
+    else
+      p "string is empty....."
+      string
+    end
+  end
+  
   def parse_time(time_in_string)
     time_in_string = time_in_string.first if time_in_string.kind_of?(Array)
     day_of_week, month, day, time, timee_zone, year = time_in_string.split

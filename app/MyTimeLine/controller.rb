@@ -3,7 +3,7 @@ class MyTimeLineController < Rho::RhoController
 
   #GET /MyTimeLine
   def index
-    @MyTimeLines = MyTimeLine.find(:all)
+    @MyTimeLines = MyTimeLine.find(:all).reverse
     render
   end
 

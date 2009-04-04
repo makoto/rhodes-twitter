@@ -3,14 +3,14 @@
 
 <li class ="row">
   <div class ="photo">
-    <img src=<%= x.user_profile_image_url %> alt=<%= x.user_screen_name %> />
+    <img src=<%= escape x.user_profile_image_url %> alt=<%= escape x.user_screen_name %> />
   </div>
   <div class ="status">
     <div class ="text">
-     <%= x.text %>
+     <%= escape x.text %>
     </div>
     <div class ="user">
-     <%= x.user_name %> <%= x.created_at %> via <%= x.source %>
+     <%= x.user_name %> <%= x.created_at %> via <%= escape x.source %>
     </div>
   </div>
 </li>

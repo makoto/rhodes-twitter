@@ -1,5 +1,5 @@
 require 'rho/rhocontroller'
-
+require 'helpers/time_helper'
 class GeoTimeLineController < Rho::RhoController
 
   #GET /GeoTimeLine
@@ -8,29 +8,14 @@ class GeoTimeLineController < Rho::RhoController
   end
   
   def show
-    p "PARAMS"
-    p @params
     timeout = 0
     radius = @params['radius']
     unit = @params['unit']
 
-    p "GeoLocation.latitude  "
-    p GeoLocation.latitude
-    p "timeout : #{timeout}"
-    p "GeoLocation.latitude.to_s  "
-    p GeoLocation.latitude.to_s
-
     latitude =  GeoLocation.latitude.to_s
     longitude = GeoLocation.longitude.to_s
         
-    range = "25km"
-    p "PARAMS"
     question = "#{latitude},#{longitude},#{radius}#{unit}"
-
-    # Not sure how this works yet.
-    # range = "25km"
-    # url = "/search.json?geocode=#{latitude}%2C#{longitude}%2C#{range}"
-    # GeoTimeLine.set_notification("url")
 
     SyncEngine::set_notification(13,"/GeoTimeLine", "question=" + question)
 
@@ -41,12 +26,12 @@ class GeoTimeLineController < Rho::RhoController
     p Rhom::RhomDbAdapter::select_from_table('object_values','*', :source_id => 13)
     p "EOF |||||||||||||||"
     
-    sleep 10
+    # sleep 10
     
     p "Rhom::RhomDbAdapter::select_from_table 2" 
     p Rhom::RhomDbAdapter::select_from_table('object_values','*', :source_id => 13)
     p "EOF |||||||||||||||"
-    @GeoTimeLines = GeoTimeLine.find(:all)
+    @GeoTimeLines = GeoTimeLine.find(:all).reverse
     
     render :action => :show
   end
