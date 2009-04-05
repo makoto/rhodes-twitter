@@ -2,12 +2,7 @@
 class Rho::RhoController
   
   def escape(string)
-    if string
-      string.gsub(/\\\//,'/') 
-    else
-      p "string is empty....."
-      string
-    end
+    string.gsub(/\\\//,'/').gsub(/&lt;/,'<').gsub(/&gt;/,'>') if string
   end
   
   def parse_time(time_in_string)

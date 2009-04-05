@@ -1,15 +1,22 @@
 <ul id="GeoTimeLines" title="GeoTimeLines" selected="true">
+<% if @GeoTimeLines.size == 0 %>
+  <li class ="row">
+    <div class ="text">
+      Taking time to retrieve info. Please refresh to get the latest.
+    </div>
+  </li>
+<% end %>
 <%@GeoTimeLines.each do |x|%>
 <li class ="row">
   <div class ="photo">
-    <img src=<%= escape(x.user_profile_image_url) %> alt=<%= escape(x.user_screen_name) %> />
+    <img src="<%= escape(x.profile_image_url) %>" alt="<%= x.from_user %>" />
   </div>
   <div class ="status">
     <div class ="text">
      <%= escape(x.text) %>
     </div>
     <div class ="user">
-     <%= escape(x.user_name) %> <%= x.created_at %> via <%= x.source.gsub(/\\\//,'/') %>
+     <%= x.from_user %> <%= x.created_at %> via <%= escape x.source %>
     </div>
   </div>
 </li>
