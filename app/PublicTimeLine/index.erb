@@ -10,7 +10,7 @@
      <%= escape x.text %>
     </div>
     <div class ="user">
-     <%= escape x.user_name %> <%= x.created_at %> via <%= escape x.source %>
+     <%= escape x.user_name %> <%= parse_time x.created_at %> via <%= escape x.source %>
     </div>
   </div>
 </li>

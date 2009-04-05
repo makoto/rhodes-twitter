@@ -16,7 +16,7 @@
      <%= escape(x.text) %>
     </div>
     <div class ="user">
-     <%= x.from_user %> <%= x.created_at %> via <%= escape x.source %>
+     <%= x.from_user %> <%= parse_time x.created_at %> via <%= escape x.source %>
     </div>
   </div>
 </li>
