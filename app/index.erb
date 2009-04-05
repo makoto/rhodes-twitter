@@ -1,14 +1,13 @@
-<ul id="home" selected="true" title="Twitter">
-	<li><a  href="Account"> Account</a></li>
-	<li><a  href="GeoTimeLine"> Neighbor Tweet</a></li>
-	<li><a  href="MyTimeLine"> Friends Tweet</a></li>
-	<li><a  href="PublicTimeLine"> Public Tweet</a></li>
-	<% if SyncEngine::logged_in > 0 %>		
-	<li>You are logged in </li>
+<ul id="home" selected="true" title="Ruby Mobile Twitter">
+  <% if SyncEngine::logged_in > 0 %>		
+  	<li><a  href="GeoTimeLine"> Neighbor Tweet</a></li>
+  	<li><a  href="PublicTimeLine"> Public Tweet</a></li>
+  	<li><a  href="MyTimeLine"> Friends Tweet</a></li>
+  	<li><a  href="MyTimeLine/new"> Post New Tweet</a></li>
+    <li><a  href="Settings/logout"> Logout </a></li>
 	<% else %>
-	<li>You are logged out </li>
+  	<li>You are logged out </li>
+  	<li><a  href="Settings/login"> Login </a></li>
 	<% end %>
-	<li><a  href="Settings/login"> Login </a></li>
-  <li><a  href="Settings/logout"> Logout </a></li>
 </ul>
 
