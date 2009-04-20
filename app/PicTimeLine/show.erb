@@ -1,0 +1,19 @@
+<div class="toolbar">
+	<h1 id="pageTitle">
+		<%=@pictimeline.text%>
+	</h1>
+</div>
+
+<div class="panel" selected="true">
+
+<a class="button right_button" href="<%=url_for(:action => :edit, :id => @pictimeline.object)%>" target="_self">Edit</a>
+
+<table class="grid">
+  
+  <tr>
+	<td class="gridleft">Text</td>
+    <td class="gridright"><%=@pictimeline.text%></td>
+  </tr>
+  
+</table>
+</div>

@@ -1,0 +1,27 @@
+<div class="toolbar">
+	<h1 id="pageTitle">
+		Edit <%=@pictimeline.text%>
+	</h1>
+</div>
+
+<form title="Edit PicTimeLine" 
+	  class="panel" 
+	  id="pictimeline_edit_form" 
+	  method="POST" 
+	  action="<%=url_for(:action => :update)%>" selected="true">
+	<fieldset>
+		<input type="hidden" name="id" value="<%=@pictimeline.object%>"/>
+		
+		  <div class="row">
+			  <label>Text: </label>
+			  <input type="text" name="pictimeline[text]" value="<%=@pictimeline.text%>"/>
+		  </div>
+		
+	</fieldset>
+	<input type="submit" value="Update"/>
+	<p align="center">
+		<a href="<%=url_for(:action => :delete, :id => @pictimeline.object)%>">
+			<font color="#990000">Delete</font>
+		</a>
+	</p>
+</form>

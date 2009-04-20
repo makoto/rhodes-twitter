@@ -1,0 +1,14 @@
+<div class="toolbar">
+	<h1 id="pageTitle">
+		PicTimeLines
+	</h1>
+</div>
+
+<ul id="pictimelines" title="PicTimeLines" selected="true">
+  	<a class="button right_button" href="PicTimeLine/new" target="_self">New</a>
+	<%@pictimelines.each do |x|%>
+	
+	<li><%=link_to "#{x.text}", :action => :show, :id => x.object%></li>
+	
+	<%end%>
+</ul>

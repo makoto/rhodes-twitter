@@ -1,0 +1,42 @@
+<div class="toolbar">
+	<h1 id="pageTitle">
+		New PicTimeLine
+	</h1>
+</div>
+
+<form title="New PicTimeLine" 
+	  class="panel"
+	  id="pictimeline_new_form" 
+	  method="POST" 
+	  action="<%=url_for(:action => :create)%>" selected="true">
+	<fieldset>
+  	  <div class="row">
+  		  <label>id: </label>
+    		<input type="text" name="id" value="<%=@pictimeline.object%>"/>
+  	  </div>
+		
+		  <div class="row">
+			  <label>Text: </label>
+			  <input type="text" name="pictimeline[text]"/>
+		  </div>
+
+		  <div class="row">
+		    <label>Pic: </label>
+      	<%= link_to '[Choose Picture]', { :action => :edit }%>
+
+        <% if @pictimelines %>
+     	  <% @pictimelines.reverse_each do |x|%>
+       		  <img src='<%= x.image_uri%>' width='100px'></img><br/>
+      	    <% end %>
+      	<% end %>
+		  </div>
+
+ 		  <div class="row">
+		    <label>Callback: </label>
+      	<%= link_to '[Choose Picture]', { :action => :camera_callback }%>
+		  </div>
+
+		
+	</fieldset>
+	<input type="submit" value="Create"/>
+</form>
