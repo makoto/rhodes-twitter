@@ -24,10 +24,11 @@
 		    <label>Pic: </label>
       	<%= link_to '[Choose Picture]', { :action => :edit }%>
 
-        <% if @pictimelines %>
-     	  <% @pictimelines.reverse_each do |x|%>
-       		  <img src='<%= x.image_uri%>' width='100px'></img><br/>
-      	    <% end %>
+        <% if @image %>
+       		  <img src='<%= @image %>' width='100px'></img><br/>
+       		  <input type="hidden" name="pictimeline[image_uri]" value="<%= @image %>"/>
+       	<% else %>
+       	    There is no @image
       	<% end %>
 		  </div>
 

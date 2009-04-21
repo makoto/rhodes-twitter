@@ -31,23 +31,18 @@ class PicTimeLineController < Rho::RhoController
   
   def camera_callback
     if @params['status'] == 'ok'
-      @pictimelines = PicTimeLine.new({'image_uri'=>@params['image_uri']})
-      @pictimelines.save
+      @image = @params['image_uri']
+      p "image_url::::: #{@image.inspect}"
     end  
+   WebView::refresh
    render :action => :ok, :layout => false
   end
 
   # POST /PicTimeLine/create
   def create
-    if @params['id']
-      p "id exists"
-      @pictimeline = PicTimeLine.find(@params['id'])
-    else
-      @pictimeline = PicTimeLine.new(@params['pictimeline'])
-    end
-    p "@pictimeline#{@pictimeline}"
-    p "R@paRAms#{@params.inspect}"
-    @pictimeline.update_attributes(@params['pictimeline'])
+    @pictimeline = PicTimeLine.new(@params['pictimeline'])
+    p "@pictimeline #{@pictimeline}"
+    p "@params #{@params.inspect}"
     @pictimeline.save
     SyncEngine::dosync
     redirect :action => :index
