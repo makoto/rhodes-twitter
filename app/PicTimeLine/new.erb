@@ -22,22 +22,15 @@
 
 		  <div class="row">
 		    <label>Pic: </label>
-      	<%= link_to '[Choose Picture]', { :action => :edit }%>
-
-        <% if @image %>
-       		  <img src='<%= @image %>' width='100px'></img><br/>
-       		  <input type="hidden" name="pictimeline[image_uri]" value="<%= @image %>"/>
-       	<% else %>
-       	    There is no @image
-      	<% end %>
+		    <% unless @params['image_local_path'] %>
+      	  <%= link_to '[Choose Picture]', { :action => :edit }%>
+      	<% else %>        
+       	  <img src="<%= @params['image_local_path']%>" width='100px'></img>
+          <input  type="text" value="<%= Rho::RhoSupport.url_encode(@params['image_local_path'])%>" name="pictimeline[image_uri]">
+        <% end %>		    
+        </p>
 		  </div>
-
- 		  <div class="row">
-		    <label>Callback: </label>
-      	<%= link_to '[Choose Picture]', { :action => :camera_callback }%>
-		  </div>
-
-		
 	</fieldset>
+
 	<input type="submit" value="Create"/>
 </form>

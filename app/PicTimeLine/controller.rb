@@ -1,7 +1,7 @@
 require 'rho/rhocontroller'
 
 class PicTimeLineController < Rho::RhoController
-@layout = :simplelayout
+# @layout = :simplelayout
 
   #GET /PicTimeLine
   def index
@@ -31,17 +31,16 @@ class PicTimeLineController < Rho::RhoController
   
   def camera_callback
     if @params['status'] == 'ok'
-      @image = @params['image_uri']
-      p "image_url::::: #{@image.inspect}"
+      WebView::navigate( url_for( :action => :new, :query => {:image_local_path =>  @params['image_uri']} ) )
     end  
-   WebView::refresh
-   render :action => :ok, :layout => false
+   # render :action => :ok, :layout => true
+   render :action => :new
   end
 
   # POST /PicTimeLine/create
   def create
     @pictimeline = PicTimeLine.new(@params['pictimeline'])
-    p "@pictimeline #{@pictimeline}"
+    p "@pictimeline #{@pictimeline.inspect}"
     p "@params #{@params.inspect}"
     @pictimeline.save
     SyncEngine::dosync
