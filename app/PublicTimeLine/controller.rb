@@ -1,5 +1,5 @@
 require 'rho/rhocontroller'
-# require File.join(__rhoGetCurrentDir(), 'apps','Twitter','lib/time_helper')
+require 'helpers/time_helper'
 
 class PublicTimeLineController < Rho::RhoController
   

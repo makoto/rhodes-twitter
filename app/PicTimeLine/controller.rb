@@ -1,4 +1,5 @@
 require 'rho/rhocontroller'
+require 'helpers/time_helper'
 
 class PicTimeLineController < Rho::RhoController
 # @layout = :simplelayout
@@ -43,6 +44,8 @@ class PicTimeLineController < Rho::RhoController
     p "@pictimeline #{@pictimeline.inspect}"
     p "@params #{@params.inspect}"
     @pictimeline.save
+    p "Rhom::RhomDbAdapter::select_from_table::::1"
+    p Rhom::RhomDbAdapter::select_from_table('object_values','*', 'attrib_type' => "blob.file")
     SyncEngine::dosync
     redirect :action => :index
   end

@@ -1,4 +1,6 @@
 require 'rho/rhocontroller'
+require 'helpers/time_helper'
+
 class MyTimeLineController < Rho::RhoController
 
   #GET /MyTimeLine
