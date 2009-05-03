@@ -41,7 +41,12 @@ class PicTimeLineController < Rho::RhoController
   # POST /PicTimeLine/create
   def create
     # @pictimeline = PicTimeLine.new({'image_uri'=>@params['pictimeline']['image_uri']})
-    @pictimeline = PicTimeLine.new({'image_uri'=>@params['pictimeline']['image_uri'].gsub(/%2F/,'/'), 'foo'=> 'bar'})
+    @pictimeline = PicTimeLine.new(
+      {
+      'image_uri' => @params['pictimeline']['image_uri'].gsub(/%2F/,'/'), 
+      'text'      => @params['pictimeline']['text']
+      }
+    )
     # @pictimeline = PicTimeLine.new(@params['pictimeline'])
     p "@pictimeline #{@pictimeline.inspect}"
     p "@params #{@params.inspect}"
