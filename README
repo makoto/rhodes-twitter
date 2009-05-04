@@ -10,12 +10,16 @@
 
 ## TODO (Must have before submission)
 
-* Removed scaffold links
-* Tidy up "Post tweet with photo to twitpic" view
-* Cache text field and display it after selecting photos.
+* Long text field (140 chars)
+* Link to url on text
+* Refresh tweet after posting picture with tweet.
+
+* Setup Rhohub
+* Test Android build
 
 ## TODO (Nice to have)
 * Standard functionalities other twitter client have (reply publicly/reply personally/follow/unfollow/display friends timeline)
+* Javascript word count for 140 char limit
 * Transcode geolocation to address
 * Map Neighbor tweet in GoogleMap/Yahoo Map
 * Export friend's profile image to Contact List (just to show off PIM functionality)

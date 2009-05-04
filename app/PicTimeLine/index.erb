@@ -1,14 +1,20 @@
-<div class="toolbar">
-	<h1 id="pageTitle">
-		PicTimeLines
-	</h1>
-</div>
+<ul id="MyTimeLines" title="Friends Tweet">
+<%@pictimelines.each do |x|%>
 
-<ul id="pictimelines" title="PicTimeLines" selected="true">
-  	<a class="button right_button" href="PicTimeLine/new" target="_self">New</a>
-	<%@pictimelines.each do |x|%>
-	
-	<li><%=link_to "#{x.text}", :action => :show, :id => x.object%></li>
-	
-	<%end%>
+<li class ="row">
+  <div class ="photo">
+    <% if escape x.user_profile_image_url %>
+      <img src=<%= escape x.user_profile_image_url %> alt=<%= escape x.user_screen_name %> />
+    <% end %>
+  </div>
+  <div class ="status">
+    <div class ="text">
+     <%= escape x.text %>
+    </div>
+    <div class ="user">
+     <%= x.user_name %> <%= parse_time x.created_at %> via <%= escape x.source %>
+    </div>
+  </div>
+</li>
+<%end%>
 </ul>

@@ -1,36 +1,30 @@
-<div class="toolbar">
-	<h1 id="pageTitle">
-		New PicTimeLine
-	</h1>
-</div>
+<% unless @params['image_local_path'] %>
+ <form class="panel" selected = "true" title="New Pic & Tweet" >
+     <a  href="PicTimeLine/edit" class="whiteButton"> Choose Picture</a>
+ </form>
+<% else %>        
 
-<form title="New PicTimeLine" 
+<form title="New Pic & Tweet" 
 	  class="panel"
+	  selected = "true"
 	  id="pictimeline_new_form" 
 	  method="POST" 
 	  action="<%=url_for(:action => :create)%>" selected="true">
 	<fieldset>
-  	  <div class="row">
-  		  <label>id: </label>
-    		<input type="text" name="id" value="<%=@pictimeline.object%>"/>
-  	  </div>
-		
+    	<input type="hidden" name="id" value="<%=@pictimeline.object%>"/>
 		  <div class="row">
 			  <label>Text: </label>
 			  <input type="text" name="pictimeline[text]"/>
 		  </div>
 
 		  <div class="row">
-		    <label>Pic: </label>
-		    <% unless @params['image_local_path'] %>
-      	  <%= link_to '[Choose Picture]', { :action => :edit }%>
-      	<% else %>        
+		    <label>Pic: </label>     
        	  <img src="<%= @params['image_local_path']%>" width='100px'></img>
-          <input  type="text" value="<%= Rho::RhoSupport.url_encode(@params['image_local_path'])%>" name="pictimeline[image_uri]">
-        <% end %>		    
+          <input  type="hidden" value="<%= Rho::RhoSupport.url_encode(@params['image_local_path'])%>" name="pictimeline[image_uri]">
         </p>
 		  </div>
 	</fieldset>
 
 	<input type="submit" value="Create"/>
 </form>
+<% end %>		    

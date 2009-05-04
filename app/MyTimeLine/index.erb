@@ -1,9 +1,11 @@
-<ul id="MyTimeLines" title="MyTimeLines">
+<ul id="MyTimeLines" title="Friends Tweet">
 <%@MyTimeLines.each do |x|%>
 
 <li class ="row">
   <div class ="photo">
-    <img src=<%= escape x.user_profile_image_url %> alt=<%= escape x.user_screen_name %> />
+    <% if escape x.user_profile_image_url %>
+      <img src=<%= escape x.user_profile_image_url %> alt=<%= escape x.user_screen_name %> />
+    <% end %>
   </div>
   <div class ="status">
     <div class ="text">
@@ -15,5 +17,4 @@
   </div>
 </li>
 <%end%>
-<li><font color="blue"><%=link_to "New MyTimeLine", :action => :new%></font></li>
 </ul>
