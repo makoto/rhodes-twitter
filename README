@@ -1,0 +1,21 @@
+# Ruby Mobile Twitter (RMT)
+
+## Functionality
+
+* Display public tweet (public timeline)
+* Display friend tweet (my timeline)
+* Display neighbor tweet based on your location (geo timeline)
+* Post tweet to twitter
+* Post tweet with photo to twitpic
+
+## TODO (Must have before submission)
+
+* Removed scaffold links
+* Tidy up "Post tweet with photo to twitpic" view
+* Cache text field and display it after selecting photos.
+
+## TODO (Nice to have)
+* Standard functionalities other twitter client have (reply publicly/reply personally/follow/unfollow/display friends timeline)
+* Transcode geolocation to address
+* Map Neighbor tweet in GoogleMap/Yahoo Map
+* Export friend's profile image to Contact List (just to show off PIM functionality)
