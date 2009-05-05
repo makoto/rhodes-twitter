@@ -1,7 +1,11 @@
 require 'rho/rhocontroller'
 require 'helpers/time_helper'
+require 'helpers/application_helper'
+
 
 class MyTimeLineController < Rho::RhoController
+  include ApplicationHelper
+  
 
   #GET /MyTimeLine
   def index

@@ -1,6 +1,9 @@
 require 'rho/rhocontroller'
 require 'helpers/time_helper'
+require 'helpers/application_helper'
+
 class GeoTimeLineController < Rho::RhoController
+include ApplicationHelper
 
   #GET /GeoTimeLine
   def index

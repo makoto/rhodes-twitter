@@ -1,7 +1,11 @@
 require 'rho/rhocontroller'
 require 'helpers/time_helper'
+require 'helpers/application_helper'
+
 
 class PicTimeLineController < Rho::RhoController
+  include ApplicationHelper
+  
 # @layout = :simplelayout
 
   #GET /PicTimeLine

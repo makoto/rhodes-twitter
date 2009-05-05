@@ -9,7 +9,7 @@
   </div>
   <div class ="status">
     <div class ="text">
-     <%= escape x.text %>
+      <%= auto_link_urls(escape(x.text)) %>
     </div>
     <div class ="user">
      <%= x.user_name %> <%= parse_time x.created_at %> via <%= escape x.source %>
