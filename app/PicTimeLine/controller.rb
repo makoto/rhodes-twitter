@@ -22,8 +22,6 @@ class PicTimeLineController < Rho::RhoController
 
   # GET /PicTimeLine/new
   def new
-    p "newR::::: PicTimeLine.find(:all).first "
-    p PicTimeLine.find(:all).first 
     @pictimeline = PicTimeLine.find(:all).first || PicTimeLine.new
     render :action => :new
   end
@@ -38,40 +36,33 @@ class PicTimeLineController < Rho::RhoController
     if @params['status'] == 'ok'
       WebView::navigate( url_for( :action => :new, :query => {:image_local_path =>  @params['image_uri'].gsub(/%2F/,'/')} ) )
     end  
-   # render :action => :ok, :layout => true
    render :action => :new
   end
 
   # POST /PicTimeLine/create
   def create
-    # @pictimeline = PicTimeLine.new({'image_uri'=>@params['pictimeline']['image_uri']})
     @pictimeline = PicTimeLine.new(
       {
       'image_uri' => @params['pictimeline']['image_uri'].gsub(/%2F/,'/'), 
       'text'      => @params['pictimeline']['text']
       }
     )
-    # @pictimeline = PicTimeLine.new(@params['pictimeline'])
-    p "@pictimeline #{@pictimeline.inspect}"
-    p "@params #{@params.inspect}"
     @pictimeline.save
-    p "Rhom::RhomDbAdapter::select_from_table::::1"
-    p Rhom::RhomDbAdapter::select_from_table('object_values','*', 'attrib_type' => "blob.file")
     SyncEngine::dosync
     redirect :action => :index
   end
 
-  # POST /PicTimeLine/1/update
-  # def update
-  #   @pictimeline = PicTimeLine.find(@params['id'])
-  #   @pictimeline.update_attributes(@params['PicTimeLine'])
-  #   redirect :action => :index
-  # end
+  POST /PicTimeLine/1/update
+  def update
+    @pictimeline = PicTimeLine.find(@params['id'])
+    @pictimeline.update_attributes(@params['PicTimeLine'])
+    redirect :action => :index
+  end
 
-  # POST /PicTimeLine/1/delete
-  # def delete
-  #   @pictimeline = PicTimeLine.find(@params['id'])
-  #   @pictimeline.destroy
-  #   redirect :action => :index
-  # end
+  POST /PicTimeLine/1/delete
+  def delete
+    @pictimeline = PicTimeLine.find(@params['id'])
+    @pictimeline.destroy
+    redirect :action => :index
+  end
 end

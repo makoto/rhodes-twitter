@@ -24,26 +24,10 @@ include ApplicationHelper
 
     GeoTimeLine.ask(question)
 
-    require 'rhom'
-    p "Rhom::RhomDbAdapter::select_from_table 1" 
-    p Rhom::RhomDbAdapter::select_from_table('object_values','*', :source_id => 13)
-    p "EOF |||||||||||||||"
-    
-    # sleep 10
-    
-    p "Rhom::RhomDbAdapter::select_from_table 2" 
-    p Rhom::RhomDbAdapter::select_from_table('object_values','*', :source_id => 13)
-    p "EOF |||||||||||||||"
     @GeoTimeLines = GeoTimeLine.find(:all).reverse
     
     render :action => :show
   end
-
-  # GET /GeoTimeLine/1
-  # def show
-  #   @GeoTimeLine = GeoTimeLine.find(@params['id'])
-  #   render :action => :show
-  # end
 
   # GET /GeoTimeLine/new
   def new
