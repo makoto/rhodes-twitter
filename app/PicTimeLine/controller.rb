@@ -41,25 +41,29 @@ class PicTimeLineController < Rho::RhoController
 
   # POST /PicTimeLine/create
   def create
-    @pictimeline = PicTimeLine.new(
-      {
-      'image_uri' => @params['pictimeline']['image_uri'].gsub(/%2F/,'/'), 
-      'text'      => @params['pictimeline']['text']
-      }
-    )
-    @pictimeline.save
-    SyncEngine::dosync
-    redirect :action => :index
+    if @params['pictimeline']['text'].size >= 140
+      redirect :action => :new, :query => {:error => "Too long: Max is 140 chars", :text => @params['pictimeline']['text']}
+    else
+      @pictimeline = PicTimeLine.new(
+        {
+        'image_uri' => @params['pictimeline']['image_uri'].gsub(/%2F/,'/'), 
+        'text'      => @params['pictimeline']['text']
+        }
+      )
+      @pictimeline.save
+      SyncEngine::dosync
+      redirect :action => :index
+    end
   end
 
-  POST /PicTimeLine/1/update
+  # POST /PicTimeLine/1/update
   def update
     @pictimeline = PicTimeLine.find(@params['id'])
     @pictimeline.update_attributes(@params['PicTimeLine'])
     redirect :action => :index
   end
 
-  POST /PicTimeLine/1/delete
+  # POST /PicTimeLine/1/delete
   def delete
     @pictimeline = PicTimeLine.find(@params['id'])
     @pictimeline.destroy

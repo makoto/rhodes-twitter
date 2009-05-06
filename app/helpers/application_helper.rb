@@ -110,6 +110,7 @@ module ApplicationHelper
   end
 
   def parse_time(time_in_string)
+    return nil unless time_in_string
     time_in_string = time_in_string.first if time_in_string.kind_of?(Array)
 
     # This is due to annoying inconsistance between Twitter's search API and REST API

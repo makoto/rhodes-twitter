@@ -1,16 +1,23 @@
+
 <form title="Post New Tweet" 
 	  class="panel"
 	  id="MyTimeLine_new_form" 
 	  method="POST" 
 	  action="<%=url_for(:action => :create)%>">
 	<fieldset>
-		<input type="hidden" name="id" value="<%=@MyTimeLine.object%>"/>
-
-		  <div class="row">
-			  <label>Text: </label>
-			  <input type="text" name="MyTimeLine[text]"/>
+		  <div class="tallrow" style="height:auto">
+			  <textarea name="MyTimeLine[text]" id="text" rows="3" style="margin:6px;width:90%"/>
+			  <% if @params && @params['text'] %>
+      	  <%= @params['text']%>
+      	<% end %>
+			  </textarea>
+			  <div class="clearer"></div>
 		  </div>
-	
 	</fieldset>
+	<div id="count"></div>
+	
+	<% if @params && @params['error'] %>
+	  <div><b style="color:red"><%= @params['error']%></b></div>
+	<% end %>	
 	<input type="submit" value="Create"/>
 </form>

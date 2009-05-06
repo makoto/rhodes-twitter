@@ -11,19 +11,25 @@
 	  method="POST" 
 	  action="<%=url_for(:action => :create)%>" selected="true">
 	<fieldset>
-    	<input type="hidden" name="id" value="<%=@pictimeline.object%>"/>
-		  <div class="row">
-			  <label>Text: </label>
-			  <input type="text" name="pictimeline[text]"/>
-		  </div>
+	  <div class="tallrow" style="height:auto">
+		  <textarea name="pictimeline[text]" id="text" rows="3" style="margin:6px;width:90%"/>
+		  <% if @params && @params['text'] %>
+    	  <%= @params['text']%>
+    	<% end %>
+		  </textarea>
+		  <div class="clearer"></div>
+	  </div>
 
-		  <div class="row">
-		    <label>Pic: </label>     
-       	  <img src="<%= @params['image_local_path']%>" width='100px'></img>
-          <input  type="hidden" value="<%= Rho::RhoSupport.url_encode(@params['image_local_path'])%>" name="pictimeline[image_uri]">
-        </p>
-		  </div>
+	  <div class="row">
+	    <label>Pic: </label>     
+     	  <img src="<%= @params['image_local_path']%>" width='100px'></img>
+        <input  type="hidden" value="<%= Rho::RhoSupport.url_encode(@params['image_local_path'])%>" name="pictimeline[image_uri]">
+      </p>
+	  </div>
 	</fieldset>
+	<% if @params && @params['error'] %>
+	  <div><b style="color:red"><%= @params['error']%></b></div>
+	<% end %>	
 
 	<input type="submit" value="Create"/>
 </form>

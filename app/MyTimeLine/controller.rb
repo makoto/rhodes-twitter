@@ -33,9 +33,16 @@ class MyTimeLineController < Rho::RhoController
 
   # POST /MyTimeLine/create
   def create
-    @MyTimeLine = MyTimeLine.new(@params['MyTimeLine'])
-    @MyTimeLine.save
-    redirect :action => :index
+    if @params['MyTimeLine']['text'].size >= 140
+      # @MyTimeLine = MyTimeLine.new
+      # @MyTimeLine = MyTimeLine.new(:text => @params['MyTimeLine']['text'], :error => "Too long")
+      # redirect :action => :new
+      redirect :action => :new, :query => {:error => "Too long: Max is 140 chars", :text => @params['MyTimeLine']['text']}
+    else
+      @MyTimeLine = MyTimeLine.new(@params['MyTimeLine'])
+      @MyTimeLine.save
+      redirect :action => :index
+    end
   end
 
   # POST /MyTimeLine/1/update
